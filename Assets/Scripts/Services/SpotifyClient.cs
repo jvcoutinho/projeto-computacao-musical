@@ -33,6 +33,7 @@ namespace Services
                 Value = new SpotifyAPI.Web.SpotifyClient(tokenResponse);
 
                 Debug.Log("Login and client configuration successful.");
+
                 OnAuthenticationCompleted.Raise();
             }
             catch (Exception e)

@@ -15,8 +15,11 @@ namespace Logic.Spotify
 
         [Header("Events")] public GameEvent OnServerInitialized;
 
+        private string responseCode;
+
         private void Start()
         {
+            responseCode = null;
             StartServer().Forget();
         }
 
@@ -33,12 +36,15 @@ namespace Logic.Spotify
                 server.AuthorizationCodeReceived += (sender, response) =>
                 {
                     server.Stop();
-                    Client.FromAuthorizationCode(response.Code).Forget();
-                    Destroy(gameObject);
+                    responseCode = response.Code;
                     return null;
                 };
 
                 OnServerInitialized.Raise();
+
+                await UniTask.WaitUntil(() => !string.IsNullOrEmpty(responseCode));
+                Client.FromAuthorizationCode(responseCode).Forget();
+                Destroy(gameObject);
             }
             catch (Exception e)
             {
