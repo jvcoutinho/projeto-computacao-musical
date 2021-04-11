@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb2273f4e7fa4b18890b69a4583ade8b, type: 3}
-  m_Name: SpotifyClient
+  m_Script: {fileID: 11500000, guid: c6de0702488d425295eed13a14d335c5, type: 3}
+  m_Name: OnAuthenticationCompleted
   m_EditorClassIdentifier: 
-  SpotifyConfiguration: {fileID: 11400000, guid: bc09d0b6786dce6418b97d76d2442e9f, type: 2}
-  OnAuthenticationCompleted: {fileID: 11400000, guid: e95764d7b6126ab479cb00ef2fbde0b6, type: 2}

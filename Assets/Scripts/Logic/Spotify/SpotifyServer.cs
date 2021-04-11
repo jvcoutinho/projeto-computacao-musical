@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using Events;
 using Services;
 using SpotifyAPI.Web.Auth;
@@ -14,7 +15,12 @@ namespace Logic.Spotify
 
         [Header("Events")] public GameEvent OnServerInitialized;
 
-        private async void Start()
+        private void Start()
+        {
+            StartServer().Forget();
+        }
+
+        private async UniTaskVoid StartServer()
         {
             try
             {
@@ -24,11 +30,12 @@ namespace Logic.Spotify
                 EmbedIOAuthServer server = new EmbedIOAuthServer(baseUri, port);
                 await server.Start();
 
-                server.AuthorizationCodeReceived += async (sender, response) =>
+                server.AuthorizationCodeReceived += (sender, response) =>
                 {
-                    await server.Stop();
-                    Client.FromAuthorizationCode(response.Code);
+                    server.Stop();
+                    Client.FromAuthorizationCode(response.Code).Forget();
                     Destroy(gameObject);
+                    return null;
                 };
 
                 OnServerInitialized.Raise();

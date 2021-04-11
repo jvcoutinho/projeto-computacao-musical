@@ -18,5 +18,5 @@ MonoBehaviour:
     Scope:
     - playlist-read-collaborative
   ServerConfiguration:
-    BaseUri: https://localhost:{0}/callback
+    BaseUri: http://localhost:{0}/callback
     Port: 5000

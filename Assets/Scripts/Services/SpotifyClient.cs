@@ -1,4 +1,6 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
+using Events;
 using Logic.Spotify;
 using SpotifyAPI.Web;
 using UnityEngine;
@@ -10,9 +12,11 @@ namespace Services
     {
         [Header("Data")] public SpotifyConfiguration SpotifyConfiguration;
 
+        [Header("Events")] public GameEvent OnAuthenticationCompleted;
+
         public SpotifyAPI.Web.SpotifyClient Value;
 
-        public async void FromAuthorizationCode(string authorizationCode)
+        public async UniTaskVoid FromAuthorizationCode(string authorizationCode)
         {
             try
             {
@@ -27,7 +31,9 @@ namespace Services
                 AuthorizationCodeTokenResponse tokenResponse = await client.RequestToken(request);
 
                 Value = new SpotifyAPI.Web.SpotifyClient(tokenResponse);
+
                 Debug.Log("Login and client configuration successful.");
+                OnAuthenticationCompleted.Raise();
             }
             catch (Exception e)
             {
