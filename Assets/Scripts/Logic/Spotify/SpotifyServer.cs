@@ -36,6 +36,7 @@ namespace Logic.Spotify
                 server.AuthorizationCodeReceived += (sender, response) =>
                 {
                     server.Stop();
+                    server.Dispose();
                     responseCode = response.Code;
                     return null;
                 };

@@ -310,7 +310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba48d8292d14d9e80c4027064d58229, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: Game
+  NextScene: Playlists Selection
 --- !u!4 &1064123966
 Transform:
   m_ObjectHideFlags: 0

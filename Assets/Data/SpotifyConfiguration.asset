@@ -17,6 +17,8 @@ MonoBehaviour:
     ClientSecret: 229499c4fcd04736a8f0e89716d80d41
     Scope:
     - playlist-read-collaborative
+    - playlist-read-private
+    - user-read-private
   ServerConfiguration:
     BaseUri: http://localhost:{0}/callback
     Port: 5000
