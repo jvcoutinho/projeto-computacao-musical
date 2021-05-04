@@ -6,9 +6,11 @@ namespace UI
 {
     public class IntegerRenderer : MonoBehaviour
     {
-        [Header("Components")] public Text Text;
+        [Header("Components")]
+        public Text Text;
 
-        [Header("Data")] public IntegerVariable Integer;
+        [Header("Data")]
+        public IntegerVariable Integer;
 
         private void Update()
         {

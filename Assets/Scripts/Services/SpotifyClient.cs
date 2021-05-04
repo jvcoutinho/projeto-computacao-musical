@@ -10,9 +10,11 @@ namespace Services
     [CreateAssetMenu(fileName = "NewSpotifyClient", menuName = "Scriptable Objects/Services/Spotify Client")]
     public class SpotifyClient : ScriptableObject
     {
-        [Header("Data")] public SpotifyConfiguration SpotifyConfiguration;
+        [Header("Data")]
+        public SpotifyConfiguration SpotifyConfiguration;
 
-        [Header("Events")] public GameEvent OnAuthenticationCompleted;
+        [Header("Events")]
+        public GameEvent OnAuthenticationCompleted;
 
         public SpotifyAPI.Web.SpotifyClient Value;
 
@@ -24,13 +26,14 @@ namespace Services
                 string clientSecret = SpotifyConfiguration.ClientConfiguration.ClientSecret;
                 Uri redirectUri = SpotifyConfiguration.ServerConfiguration.Uri;
 
-                SpotifyClientConfig config = SpotifyClientConfig.CreateDefault();
-                OAuthClient client = new OAuthClient(config);
-                AuthorizationCodeTokenRequest request =
-                    new AuthorizationCodeTokenRequest(clientId, clientSecret, authorizationCode, redirectUri);
-                AuthorizationCodeTokenResponse tokenResponse = await client.RequestToken(request);
+                var response = await new OAuthClient().RequestToken(
+                    new AuthorizationCodeTokenRequest(clientId, clientSecret, authorizationCode, redirectUri)
+                );
 
-                Value = new SpotifyAPI.Web.SpotifyClient(tokenResponse);
+                var config = SpotifyClientConfig
+                    .CreateDefault()
+                    .WithAuthenticator(new AuthorizationCodeAuthenticator(clientId, clientSecret, response));
+                Value = new SpotifyAPI.Web.SpotifyClient(config);
 
                 Debug.Log("Login and client configuration successful.");
 

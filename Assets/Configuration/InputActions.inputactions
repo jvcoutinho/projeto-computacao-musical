@@ -508,11 +508,11 @@
       ]
     },
     {
-      "name": "Player 1",
+      "name": "Player ",
       "id": "a59e052f-5784-4d48-aee7-ce5ffdbc7ba4",
       "actions": [
         {
-          "name": "Move Down",
+          "name": "Move Down_1",
           "type": "Button",
           "id": "7aa46472-1bb9-407e-8a0f-bb39e16c8557",
           "expectedControlType": "Button",
@@ -520,7 +520,7 @@
           "interactions": ""
         },
         {
-          "name": "Move Up",
+          "name": "Move Up_1",
           "type": "Button",
           "id": "4eebe3a1-de0d-49ae-96cb-a3492fe5d4a3",
           "expectedControlType": "Button",
@@ -528,9 +528,33 @@
           "interactions": ""
         },
         {
-          "name": "Select",
+          "name": "Select_1",
           "type": "Button",
           "id": "e062f65f-cdbe-41c2-bf69-9811cf96b3bf",
+          "expectedControlType": "Button",
+          "processors": "",
+          "interactions": ""
+        },
+        {
+          "name": "Move Down_2",
+          "type": "Button",
+          "id": "8d3f735a-96db-4c02-b26d-33c44789365b",
+          "expectedControlType": "Button",
+          "processors": "",
+          "interactions": ""
+        },
+        {
+          "name": "Move Up_2",
+          "type": "Button",
+          "id": "a128f3ca-adc6-4d94-b6ef-3877b7081fe6",
+          "expectedControlType": "Button",
+          "processors": "",
+          "interactions": ""
+        },
+        {
+          "name": "Select_2",
+          "type": "Button",
+          "id": "a24115af-8330-4827-bd96-e8650de250ea",
           "expectedControlType": "Button",
           "processors": "",
           "interactions": ""
@@ -544,7 +568,7 @@
           "interactions": "",
           "processors": "",
           "groups": "",
-          "action": "Move Down",
+          "action": "Move Down_1",
           "isComposite": false,
           "isPartOfComposite": false
         },
@@ -555,7 +579,7 @@
           "interactions": "",
           "processors": "",
           "groups": "",
-          "action": "Move Up",
+          "action": "Move Up_1",
           "isComposite": false,
           "isPartOfComposite": false
         },
@@ -566,72 +590,40 @@
           "interactions": "",
           "processors": "",
           "groups": "",
-          "action": "Select",
+          "action": "Select_1",
           "isComposite": false,
           "isPartOfComposite": false
-        }
-      ]
-    },
-    {
-      "name": "Player 2",
-      "id": "12f063b2-8029-4980-9481-68f704b0bfbc",
-      "actions": [
-        {
-          "name": "Move Down",
-          "type": "Button",
-          "id": "1d7f0c85-88ad-41d5-a7f7-84f20aa6cdda",
-          "expectedControlType": "Button",
-          "processors": "",
-          "interactions": ""
         },
-        {
-          "name": "Move Up",
-          "type": "Button",
-          "id": "b119cd4f-6615-4421-99ae-2b3ee894f13e",
-          "expectedControlType": "Button",
-          "processors": "",
-          "interactions": ""
-        },
-        {
-          "name": "Select",
-          "type": "Button",
-          "id": "7f78a05a-64a9-4b20-95d2-6d6b763cb495",
-          "expectedControlType": "Button",
-          "processors": "",
-          "interactions": ""
-        }
-      ],
-      "bindings": [
         {
           "name": "",
-          "id": "ee7d8682-7864-4214-912e-6eee4ae5b0aa",
+          "id": "eb6fcc10-e975-4498-9133-fb3ccbece45e",
           "path": "<Keyboard>/downArrow",
           "interactions": "",
           "processors": "",
           "groups": "",
-          "action": "Move Down",
+          "action": "Move Down_2",
           "isComposite": false,
           "isPartOfComposite": false
         },
         {
           "name": "",
-          "id": "afbe085d-b906-40aa-a1af-abbc65462bc7",
+          "id": "6098704b-0734-4baf-8be9-13c3e3c61c45",
           "path": "<Keyboard>/upArrow",
           "interactions": "",
           "processors": "",
           "groups": "",
-          "action": "Move Up",
+          "action": "Move Up_2",
           "isComposite": false,
           "isPartOfComposite": false
         },
         {
           "name": "",
-          "id": "8b490e87-b76d-4eae-a89f-325e92f26fda",
+          "id": "cd45b90d-982c-4dd4-8cc3-5f25bde2db07",
           "path": "<Keyboard>/enter",
           "interactions": "",
           "processors": "",
           "groups": "",
-          "action": "Select",
+          "action": "Select_2",
           "isComposite": false,
           "isPartOfComposite": false
         }

@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 17764734}
   - component: {fileID: 17764732}
   - component: {fileID: 17764731}
+  - component: {fileID: 17764735}
   m_Layer: 0
   m_Name: Song Selector
   m_TagString: Untagged
@@ -363,14 +364,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SelectedPlaylist: {fileID: 11400000, guid: 34c4b16f2d778114882ee44a0144b6bb, type: 2}
   SelectedSongs: {fileID: 11400000, guid: 4c6166734bc37f84a8e18b87e6241fb5, type: 2}
-  Score: {fileID: 0}
-  MaximumScore: 0
+  Score: {fileID: 11400000, guid: 0c81de590f0be5f4eaaa1d7eb0268ad3, type: 2}
+  MaximumScore: 10
   OnSongsSelected: {fileID: 11400000, guid: 2eab652e7c76063439824a4ff366242a, type: 2}
-  OnPlayerWonMatch: {fileID: 0}
+  OnPlayerWonMatch: {fileID: 11400000, guid: bce92c5511b2fe544926031bd24bacdd, type: 2}
   SpotifyClient: {fileID: 11400000, guid: 569f19d731ba7b643b02f59ccd6b5456, type: 2}
   FirstSongSource: {fileID: 17764732}
   SecondSongSource: {fileID: 17764731}
   PlayerPositions: 
+  SongListUI: {fileID: 1163735987}
+  PlayerSelectionsUIInitialPosition: 0
+  PlayerSelectionsUI:
+  - {fileID: 365582605}
+  - {fileID: 314084760}
 --- !u!114 &17764734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,13 +384,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 17764729}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 9f00e2beab44e064e8e56f8bad3eb535, type: 3}
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -498,8 +504,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 1d7f0c85-88ad-41d5-a7f7-84f20aa6cdda
-    m_ActionName: Player 2/Move Down[/Keyboard/downArrow]
+    m_ActionId: 8d3f735a-96db-4c02-b26d-33c44789365b
+    m_ActionName: Player /New action
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 17764733}
@@ -514,8 +520,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: b119cd4f-6615-4421-99ae-2b3ee894f13e
-    m_ActionName: Player 2/Move Up[/Keyboard/upArrow]
+    m_ActionId: a128f3ca-adc6-4d94-b6ef-3877b7081fe6
+    m_ActionName: Player /New action
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 17764733}
@@ -530,13 +536,41 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 7f78a05a-64a9-4b20-95d2-6d6b763cb495
-    m_ActionName: Player 2/Select[/Keyboard/enter]
+    m_ActionId: a24115af-8330-4827-bd96-e8650de250ea
+    m_ActionName: Player /New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: Player 1
+  m_DefaultActionMap: 'Player '
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &17764735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 17764729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08b006d49d4467096e088911dcc60c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trigger: {fileID: 11400000, guid: 2eab652e7c76063439824a4ff366242a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 17764734}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &313095030
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,8 +767,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 160, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
+  m_AnchoredPosition: {x: 100, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &314084761
 MonoBehaviour:
@@ -749,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.08235294, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -808,8 +842,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -160, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
+  m_AnchoredPosition: {x: -100, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &365582606
 MonoBehaviour:
@@ -824,7 +858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1132,7 +1166,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 2
+  m_Text: 0
 --- !u!222 &945835603
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1156,6 +1190,79 @@ MonoBehaviour:
   Player: 1
   Score: {fileID: 11400000, guid: 0c81de590f0be5f4eaaa1d7eb0268ad3, type: 2}
   Text: {fileID: 945835602}
+--- !u!1 &1023606041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1023606044}
+  - component: {fileID: 1023606043}
+  - component: {fileID: 1023606042}
+  m_Layer: 0
+  m_Name: Scene Loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1023606042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023606041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08b006d49d4467096e088911dcc60c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trigger: {fileID: 11400000, guid: ce72a629362bf5f4db846f0c84ebe039, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1023606043}
+        m_TargetAssemblyTypeName: Logic.SceneSwitcher, Assembly-CSharp
+        m_MethodName: SwitchScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1023606043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023606041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ba48d8292d14d9e80c4027064d58229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: Song Play
+--- !u!4 &1023606044
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1023606041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11739.385, y: 459.4455, z: -4703.1216}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1134461613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,7 +1381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -30}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1163735988
@@ -1294,7 +1401,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 4
+  m_ChildAlignment: 7
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
@@ -1359,13 +1466,14 @@ GameObject:
   - component: {fileID: 1526573149}
   - component: {fileID: 1526573148}
   - component: {fileID: 1526573147}
+  - component: {fileID: 1526573152}
   m_Layer: 5
   m_Name: Countdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1526573146
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1382,7 +1490,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 100}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1526573147
@@ -1439,7 +1547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9712f34b8ec5ac34e9eb7002a5533043, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InitialNumber: 5
+  InitialNumber: 30
   CurrentNumber: {fileID: 11400000, guid: 1a42441d7a3c8e4439f4cbb2eebe9633, type: 2}
   CountdownFinished: {fileID: 11400000, guid: ce72a629362bf5f4db846f0c84ebe039, type: 2}
 --- !u!114 &1526573150
@@ -1475,7 +1583,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 5
+  m_Text: 15
 --- !u!222 &1526573151
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1484,6 +1592,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526573145}
   m_CullTransparentMesh: 1
+--- !u!114 &1526573152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526573145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a08b006d49d4467096e088911dcc60c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Trigger: {fileID: 11400000, guid: 2eab652e7c76063439824a4ff366242a, type: 2}
+  Response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1526573149}
+        m_TargetAssemblyTypeName: Logic.Countdown, Assembly-CSharp
+        m_MethodName: set_Started
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &1655425792
 GameObject:
   m_ObjectHideFlags: 0

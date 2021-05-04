@@ -9,11 +9,14 @@ namespace Logic.Spotify
 {
     public class SpotifyServer : MonoBehaviour
     {
-        [Header("Data")] public SpotifyConfiguration SpotifyConfiguration;
+        [Header("Data")]
+        public SpotifyConfiguration SpotifyConfiguration;
 
-        [Header("Services")] public SpotifyClient Client;
+        [Header("Services")]
+        public SpotifyClient Client;
 
-        [Header("Events")] public GameEvent OnServerInitialized;
+        [Header("Events")]
+        public GameEvent OnServerInitialized;
 
         private string responseCode;
 

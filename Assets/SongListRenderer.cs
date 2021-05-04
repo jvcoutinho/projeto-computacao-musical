@@ -12,7 +12,7 @@ public class SongListRenderer : MonoBehaviour
         foreach (string song in SelectedSongs.Songs)
         {
             Transform songItem = Instantiate(SongItem, transform);
-            Text text = songItem.GetChild(0).GetComponent<Text>();
+            Text text = songItem.GetChild(2).GetComponent<Text>();
             text.text = song;
         }
     }
